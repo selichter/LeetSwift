@@ -15,6 +15,7 @@ import Foundation
 //You can return the answer in any order.
 
 
+//FIRST SOLUTION:
 //func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 //    var matchingIndex: [Int] = []
 //    for (index, element) in nums.enumerated() {
@@ -28,20 +29,18 @@ import Foundation
 //}
 
 
+//OPTIMIZED SOLUTION:
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     var valuesHash: [Int: Int] = Dictionary.init()
     var match: [Int] = []
     for (index, element) in nums.enumerated() {
         
         let remaining = target - element
-//        if valuesHash.keys.contains(remaining) {
         if let matchingIndex = valuesHash[remaining] {
             match = [matchingIndex, index]
         }
             
-//        }
         valuesHash[element] = index
-
     }
     
     return match
